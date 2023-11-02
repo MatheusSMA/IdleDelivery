@@ -3,7 +3,7 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private Camera _mainCamera;
-    [SerializeField] LayerMask _placementLayerMask;
+    // [SerializeField] LayerMask _placementLayerMask;
     private Vector3 _lastPosition;
 
     public Vector3 GetMousePos()
@@ -12,11 +12,12 @@ public class InputManager : MonoBehaviour
         mousePos.z = _mainCamera.nearClipPlane;
         Ray ray = _mainCamera.ScreenPointToRay(mousePos);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100, _placementLayerMask))
-        {
+
+        if (Physics.Raycast(ray, out hit, 50) && hit.transform.CompareTag("CanPlace"))
             _lastPosition = hit.point;
-        }
 
         return _lastPosition;
     }
+
+
 }
