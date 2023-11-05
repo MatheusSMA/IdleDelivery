@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "Turret", menuName = "IdleDelivery/Turret", order = 0)]
-public class Turret : ScriptableObject
+public class TurretSO : ScriptableObject
 {
     [SerializeField] private string _nameTorret;
     [SerializeField] private int _power;

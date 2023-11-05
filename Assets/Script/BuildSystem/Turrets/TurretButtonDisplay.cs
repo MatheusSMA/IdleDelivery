@@ -3,7 +3,7 @@ using TMPro;
 
 public class TurretButtonDisplay : MonoBehaviour
 {
-    [SerializeField] private Turret turret;
+    [SerializeField] private TurretSO turret;
     private TextMeshProUGUI buttonText;
 
     private void OnEnable()

@@ -15,13 +15,14 @@ public class InputManager : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, 50))
         {
-            if (hit.transform.CompareTag("CanPlace"))
-            {
-                _lastPosition = hit.point;
-                _buildSystem.CanPlace = true;
-            }
-            else
-                _buildSystem.CanPlace = false;
+            _lastPosition = hit.point;
+
+            // if (hit.transform.CompareTag("CanPlace"))
+            //     _buildSystem.CanPlace = true;
+            // else
+            //     _buildSystem.CanPlace = false;
+
+
         }
 
         return _lastPosition;
