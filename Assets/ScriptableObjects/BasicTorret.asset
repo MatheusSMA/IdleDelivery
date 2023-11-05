@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 881eff1c7e34f8b45940bf86f1e5784a, type: 3}
+  m_Name: BasicTorret
+  m_EditorClassIdentifier: 
+  _nameTorret: Basic<br>Torret
+  _power: 1
+  prefab: {fileID: 2346201892036239073, guid: a1dd0e7d5a851a345b31e4bc6d67b7d5, type: 3}
