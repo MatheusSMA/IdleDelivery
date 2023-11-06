@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 72685004}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: CanPlace
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1961,6 +1961,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 14
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2012090761}
+          m_TargetAssemblyTypeName: Buildsystem, Assembly-CSharp
+          m_MethodName: EndSelect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1985754879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2025,6 +2041,7 @@ MonoBehaviour:
   _canPlaceMaterial: {fileID: 2100000, guid: 9b340f2aa5ff6c34b9c9081faebf335a, type: 2}
   _cannotPlaceMaterial: {fileID: 2100000, guid: ee037c8158bbd314a8547016ec15061f,
     type: 2}
+  _normalMaterial: {fileID: 0}
 --- !u!114 &2012090762
 MonoBehaviour:
   m_ObjectHideFlags: 0

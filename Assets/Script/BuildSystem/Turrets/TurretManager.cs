@@ -2,18 +2,31 @@ using UnityEngine;
 
 public class TurretManager : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other.gameObject.name);
+    private bool _placed = false;
 
-        if (other.tag == "CannotPlace")
-            Buildsystem.Instance.SetMaterial(false);
+    public bool Placed { get => _placed; set => _placed = value; }
+
+    private void Update()
+    {
+        if (!Placed) CheckPlaceAvaible();
     }
 
-    private void OnTriggerExit(Collider other)
+    public void CheckPlaceAvaible()
     {
-        if (other.tag == "CannotPlace")
-            Buildsystem.Instance.SetMaterial(true);
+        Ray ray = new Ray(transform.position, Vector3.down);
+
+        if (Physics.Raycast(ray, out RaycastHit hit, 10))
+
+            if (hit.transform.CompareTag("CannotPlace"))
+                Buildsystem.Instance.SetAvaibleMaterial(false);
+            else
+                Buildsystem.Instance.SetAvaibleMaterial(true);
+
+    }
+
+    private void OnDrawGizmos()
+    {
+        Debug.DrawRay(transform.position, Vector3.down, Gizmos.color = Color.red);
     }
 
 
