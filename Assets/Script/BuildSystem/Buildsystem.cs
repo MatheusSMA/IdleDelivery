@@ -10,11 +10,14 @@ public class Buildsystem : MonoBehaviour
     #endregion
 
     #region Variables
-    private static TurretManager _currentTurret;
+    private TurretController _currentTurret;
     [SerializeField] private InputManager _inputManager;
     [SerializeField] private Grid _grid;
-    [SerializeField] private Material _canPlaceMaterial, _cannotPlaceMaterial, _normalMaterial;
+    [SerializeField] private Material _canPlaceMaterial, _cannotPlaceMaterial;
+
+    private Material _normalMaterial;
     private bool _canPlace;
+
     public bool CanPlace { get => _canPlace; set => _canPlace = value; }
     #endregion
 
@@ -23,9 +26,9 @@ public class Buildsystem : MonoBehaviour
         Instance = this;
     }
 
-    public void BeginSelect(GameObject prefab)
+    public void BeginSelect(TurretSO turretSO)
     {
-        TurretManager newTurret = Instantiate(prefab, transform).GetComponent<TurretManager>();
+        TurretController newTurret = Instantiate(turretSO.Prefab, transform).GetComponent<TurretController>();
         _currentTurret = newTurret;
         _normalMaterial = _currentTurret.GetComponent<MeshRenderer>().material;
     }

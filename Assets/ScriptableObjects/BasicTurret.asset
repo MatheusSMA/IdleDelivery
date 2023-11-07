@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nameTorret: Basic<br>Turret
   _power: 1
-  prefab: {fileID: 0}
+  prefab: {fileID: 2346201892036239073, guid: a1dd0e7d5a851a345b31e4bc6d67b7d5, type: 3}

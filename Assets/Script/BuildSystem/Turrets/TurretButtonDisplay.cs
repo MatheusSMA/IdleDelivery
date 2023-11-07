@@ -1,9 +1,11 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class TurretButtonDisplay : MonoBehaviour
 {
-    [SerializeField] private TurretSO turret;
+    [SerializeField] private TurretSO turretSO;
     private TextMeshProUGUI buttonText;
 
     private void OnEnable()
@@ -17,7 +19,7 @@ public class TurretButtonDisplay : MonoBehaviour
     }
     private void UpdateButton()
     {
-        buttonText.text = turret.NameTorret;
+        buttonText.text = turretSO.NameTorret;
     }
 
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6297115968549716476}
   - component: {fileID: 5016445889081863409}
   - component: {fileID: 8995936828940506597}
-  - component: {fileID: 972039717489789490}
+  - component: {fileID: 8746397874766414792}
   m_Layer: 2
   m_Name: Turret
   m_TagString: CannotPlace
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2346201892036239073}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 5, z: 1.5}
+  m_LocalPosition: {x: 0, y: -1.2787, z: 0}
+  m_LocalScale: {x: 1.5, y: 3.97, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &972039717489789490
+--- !u!114 &8746397874766414792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,6 +93,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2346201892036239073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9d7dd4494586d249b74e380980139e1, type: 3}
+  m_Script: {fileID: 11500000, guid: d4c4dd40fb8f89144bb578788f4d3096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretSO: {fileID: 11400000, guid: 90d482f799dcdd14bb242061e4c17a75, type: 2}
