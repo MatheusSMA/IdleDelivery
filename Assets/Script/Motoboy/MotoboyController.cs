@@ -18,14 +18,16 @@ public class MotoboyController : MonoBehaviour
     {
         while (true)
         {
-            float distance = Mathf.Sqrt((transform.position - Managers.Instance.MotoboyManager.GetWaypointMotoboy(_currentWaypointIndex)).sqrMagnitude);
+            Vector3 atualWaypoint = Managers.Instance.MotoboyManager.GetWaypointMotoboy(_currentWaypointIndex);
+            float distance = Mathf.Sqrt((transform.position - atualWaypoint).sqrMagnitude);
 
-            transform.position = Vector3.MoveTowards(transform.position, Managers.Instance.MotoboyManager.GetWaypointMotoboy(_currentWaypointIndex), _speed * Time.deltaTime);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Managers.Instance.MotoboyManager.GetWaypointMotoboy(_currentWaypointIndex) - transform.position), Time.deltaTime * _rotSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, atualWaypoint, _speed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(atualWaypoint - transform.position), Time.deltaTime * _rotSpeed);
 
             if (distance <= .5f)
             {
                 _currentWaypointIndex = (_currentWaypointIndex + 1) % Managers.Instance.MotoboyManager.Waypoints.Length;
+                transform.position = _currentWaypointIndex == 0 ? Managers.Instance.MotoboyManager.GetWaypointMotoboy(0) : transform.position;
             }
 
             yield return null;

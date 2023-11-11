@@ -6,7 +6,6 @@ using UnityEngine;
 public class TurretFire : TurretController
 {
     [SerializeField] private float _radius;
-    [SerializeField] private List<MotoboyController> motoboys = new List<MotoboyController>();
 
     private void Update()
     {
@@ -15,8 +14,11 @@ public class TurretFire : TurretController
 
     private void Fire()
     {
-        bool isInsideRange = Mathf.Sqrt((motoboys[0].transform.position - transform.position).sqrMagnitude) <= _radius;
-        Debug.Log(isInsideRange);
+        if (Managers.Instance.MotoboyManager.Motoboys.Count > 0)
+        {
+            bool isInsideRange = Mathf.Sqrt((Managers.Instance.MotoboyManager.Motoboys[0].transform.position - transform.position).sqrMagnitude) <= _radius;
+            Debug.Log(isInsideRange);
+        }
     }
     private void OnDrawGizmos()
     {
