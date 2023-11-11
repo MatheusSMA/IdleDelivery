@@ -1,20 +1,35 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+
 
 public class MotoboyController : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    private int _currentWaypointIndex = 0;
+    [SerializeField] private float _speed;
+    [SerializeField] private float _rotSpeed;
+    [SerializeField] private Transform[] waypoints;
 
-    [SerializeField]
-    private Transform[] waypoints;
-
-    private void Update()
+    private void Start()
     {
+        StartCoroutine(MoveToWaypoint());
+    }
 
-        for (int i = 0; i < waypoints.count; i++)
+    private System.Collections.IEnumerator MoveToWaypoint()
+    {
+        while (true)
         {
-            // Vector3 run = new Vector3(waypoints[i].x, 1, waypoints[i].z);
+            float distance = Mathf.Sqrt((transform.position - waypoints[_currentWaypointIndex].position).sqrMagnitude);
+
+            transform.position = Vector3.MoveTowards(transform.position, waypoints[_currentWaypointIndex].position, _speed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(waypoints[_currentWaypointIndex].position - transform.position), Time.deltaTime * _rotSpeed);
+
+            if (distance <= .5f)
+            {
+                _currentWaypointIndex = (_currentWaypointIndex + 1) % waypoints.Length;
+            }
+
+            yield return null;
         }
-        //SetOrientation
-        //sqrt |a-b| distancia * distancia
     }
 }

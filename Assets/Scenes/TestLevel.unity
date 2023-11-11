@@ -502,12 +502,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45435fb5957265540a509c820860a545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  _speed: 1
+  _rotSpeed: 3
   waypoints:
-  - {fileID: 1422949865}
-  - {fileID: 139863997}
-  - {fileID: 729880658}
-  - {fileID: 1589588780}
+  - {fileID: 139863998}
+  - {fileID: 729880659}
+  - {fileID: 1589588781}
+  - {fileID: 729880659}
+  - {fileID: 139863998}
+  - {fileID: 1422949866}
 --- !u!1 &575688091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,7 +1088,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1422949865}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.12, y: 0.63, z: -9.4}
+  m_LocalPosition: {x: -1.12, y: 0.63, z: -12.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

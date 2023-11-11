@@ -16,6 +16,7 @@ public class TurretController : MonoBehaviour
 
     public void CheckPlaceAvaible()
     {
+
         Ray ray = new Ray(transform.position, Vector3.down);
 
         if (Physics.Raycast(ray, out RaycastHit hit, 10))
