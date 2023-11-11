@@ -10,7 +10,7 @@ public class Buildsystem : MonoBehaviour
     #endregion
 
     #region Variables
-    private TurretController _currentTurret;
+    private TurretPlacement _currentTurret;
     [SerializeField] private InputManager _inputManager;
     [SerializeField] private Grid _grid;
     [SerializeField] private Material _canPlaceMaterial, _cannotPlaceMaterial;
@@ -28,7 +28,7 @@ public class Buildsystem : MonoBehaviour
 
     public void BeginSelect(TurretSO turretSO)
     {
-        TurretController newTurret = Instantiate(turretSO.Prefab, transform).GetComponent<TurretController>();
+        TurretPlacement newTurret = Instantiate(turretSO.Prefab, transform).GetComponent<TurretPlacement>();
         _currentTurret = newTurret;
         _normalMaterial = _currentTurret.GetComponent<MeshRenderer>().material;
     }
@@ -45,19 +45,13 @@ public class Buildsystem : MonoBehaviour
         if (_canPlace)
         {
             _currentTurret.GetComponent<MeshRenderer>().material = _normalMaterial;
-            CanPlaceturret(true);
+            _currentTurret.Placed = true;
         }
         else
         {
-            CanPlaceturret(false);
+            _currentTurret.Placed = false;
             Destroy(_currentTurret.gameObject);
         }
-    }
-
-
-    public void CanPlaceturret(bool state)
-    {
-        _currentTurret.Placed = state;
     }
 
     public Material SetAvaibleMaterial(bool state)
