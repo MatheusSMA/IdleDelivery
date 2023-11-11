@@ -109,8 +109,9 @@ GameObject:
   - component: {fileID: 7416413393734707554}
   - component: {fileID: 7416413393734707553}
   - component: {fileID: 7416413393734707552}
+  - component: {fileID: 963290430295255771}
   m_Layer: 0
-  m_Name: Bike
+  m_Name: Motoboy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,6 +185,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &963290430295255771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7416413393734707558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45435fb5957265540a509c820860a545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 1
+  _rotSpeed: 3
 --- !u!1 &7416413394551324003
 GameObject:
   m_ObjectHideFlags: 0
