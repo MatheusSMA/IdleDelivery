@@ -97,7 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc8aeca99494f946b1d1508ed761f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretSO: {fileID: 0}
+  turretSO: {fileID: 11400000, guid: 90d482f799dcdd14bb242061e4c17a75, type: 2}
+  _canPlaceMaterial: {fileID: 2100000, guid: 9b340f2aa5ff6c34b9c9081faebf335a, type: 2}
+  _cannotPlaceMaterial: {fileID: 2100000, guid: ee037c8158bbd314a8547016ec15061f,
+    type: 2}
 --- !u!114 &4081496383016794767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,4 +115,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretSO: {fileID: 0}
   _radius: 7
-  motoboys: []

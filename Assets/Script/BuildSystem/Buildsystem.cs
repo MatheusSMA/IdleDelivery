@@ -5,26 +5,16 @@ using UnityEngine;
 
 public class Buildsystem : MonoBehaviour
 {
-    #region Singleton
-    public static Buildsystem Instance;
-    #endregion
-
     #region Variables
     private TurretPlacement _currentTurret;
     [SerializeField] private InputManager _inputManager;
     [SerializeField] private Grid _grid;
-    [SerializeField] private Material _canPlaceMaterial, _cannotPlaceMaterial;
-
     private Material _normalMaterial;
     private bool _canPlace;
 
     public bool CanPlace { get => _canPlace; set => _canPlace = value; }
     #endregion
 
-    private void Awake()
-    {
-        Instance = this;
-    }
 
     public void BeginSelect(TurretSO turretSO)
     {
@@ -53,13 +43,4 @@ public class Buildsystem : MonoBehaviour
             Destroy(_currentTurret.gameObject);
         }
     }
-
-    public Material SetAvaibleMaterial(bool state)
-    {
-        CanPlace = state;
-        MeshRenderer turretMesh = _currentTurret.GetComponent<MeshRenderer>();
-        turretMesh.material = CanPlace == true ? turretMesh.material = _canPlaceMaterial : turretMesh.material = _cannotPlaceMaterial;
-        return turretMesh.material;
-    }
-
 }

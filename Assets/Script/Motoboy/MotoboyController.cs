@@ -1,5 +1,4 @@
-using System;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 
@@ -8,13 +7,14 @@ public class MotoboyController : MonoBehaviour
     private int _currentWaypointIndex = 0;
     [SerializeField] private float _speed;
     [SerializeField] private float _rotSpeed;
+    [SerializeField] private float _resetTimer;
 
     private void Start()
     {
         StartCoroutine(MoveToWaypoint());
     }
 
-    private System.Collections.IEnumerator MoveToWaypoint()
+    private IEnumerator MoveToWaypoint()
     {
         while (true)
         {
@@ -27,10 +27,19 @@ public class MotoboyController : MonoBehaviour
             if (distance <= .5f)
             {
                 _currentWaypointIndex = (_currentWaypointIndex + 1) % Managers.Instance.MotoboyManager.Waypoints.Length;
-                transform.position = _currentWaypointIndex == 0 ? Managers.Instance.MotoboyManager.GetWaypointMotoboy(0) : transform.position;
+                if (_currentWaypointIndex == 0) StartCoroutine(Reset());
             }
 
             yield return null;
         }
+    }
+
+    private IEnumerator Reset()
+    {
+        transform.position = _currentWaypointIndex == 0 ? Managers.Instance.MotoboyManager.GetWaypointMotoboy(0) : transform.position;
+        float waitSpeed = _speed;
+        _speed = 0;
+        yield return new WaitForSeconds(_resetTimer);
+        _speed = waitSpeed;
     }
 }

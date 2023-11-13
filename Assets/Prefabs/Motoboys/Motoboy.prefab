@@ -199,6 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 8
   _rotSpeed: 7
+  _resetTimer: 5
 --- !u!1 &7416413394551324003
 GameObject:
   m_ObjectHideFlags: 0
